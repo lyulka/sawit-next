@@ -1,7 +1,14 @@
-import '../styles/globals.css'
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+import { ThemeProvider } from '@material-ui/core/styles';
+import { OARBeliContextProvider } from '../contexts/OARBeliContext';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <ThemeProvider>
+      <OARBeliContextProvider>
+        <Component {...pageProps} />
+      </OARBeliContextProvider>
+    </ThemeProvider>
+  );
 }
-
-export default MyApp
